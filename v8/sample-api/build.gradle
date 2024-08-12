@@ -1,7 +1,0 @@
-apply plugin: 'org.springframework.boot'
-
-dependencies {
-    implementation project(':sample-app')
-    implementation('org.springframework.boot:spring-boot-starter-web:2.5.14')
-    testImplementation('org.springframework.boot:spring-boot-starter-test')
-}

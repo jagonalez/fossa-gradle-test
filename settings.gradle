@@ -1,3 +1,3 @@
 rootProject.name = 'fossa-gradle-test-v6'
-include 'sample-api'
-include 'sample-app'
+include 'a'
+include 'b'

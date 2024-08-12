@@ -1,0 +1,55 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.3.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE"
+    }
+}
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'java'
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+
+    apply plugin: 'io.spring.dependency-management'
+
+
+    configurations {
+        // compile.deprecateForDeclaration('compile')
+        // compile.deprecateForConsumption('apiElements')
+        // compile.deprecateForResolution('compileClasspath')
+        'compile' { extendsFrom compileOnly }
+    }
+    repositories {
+        mavenCentral()
+    }
+    group = "group"
+    version = 1.0
+}
+
+project (':a') {
+    // apply plugin: 'org.springframework.boot'
+
+    dependencies {
+        compile project(':b')
+        implementation('org.springframework.boot:spring-boot-starter-web:2.5.14')
+    }
+}
+
+project(':b') {
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-web:2.5.14'
+    }
+}
+
+dependencies {
+    compileOnly project(':a')
+}
