@@ -5,7 +5,6 @@ on:
 
 jobs:
   echo:
-    if: ${{ startsWith(github.ref, 'refs/heads/jg/') }}
     runs-on: ubuntu-latest
     steps:
       - name: Echo
