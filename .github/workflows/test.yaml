@@ -1,11 +1,18 @@
 name: Test
 
 on:
-  delete
+  push
 
 jobs:
   echo:
+    if: ${{ startsWith(github.ref, 'refs/heads/jg/') }}
     runs-on: ubuntu-latest
     steps:
       - name: Echo
         run: echo "${{ github.event.ref }} - ${{ github.event.ref_type }}"
+      - name: Echo created
+        run: echo "${{ github.event.created }}"
+      - name: Echo deleted
+        run: echo "${{ github.event.deleted }}"
+      - name: echo event name
+        run: echo "${{ github.event_name }}"
