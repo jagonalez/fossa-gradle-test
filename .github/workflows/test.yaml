@@ -1,7 +1,7 @@
 name: Test
 
 on:
-  push
+  delete
 
 jobs:
   echo:
@@ -9,9 +9,9 @@ jobs:
     steps:
       - name: Echo
         run: echo "${{ github.event.ref }} - ${{ github.event.ref_type }}"
-      - name: Echo created
-        run: echo "${{ github.event.created }}"
-      - name: Echo deleted
-        run: echo "${{ github.event.deleted }}"
-      - name: echo event name
-        run: echo "${{ github.event_name }}"
+      - name: echo ref_name
+        run: echo "${{ github.ref_name }}"
+      - name: echo ref
+        run: echo "${{ github.ref }}"
+      - name: echo event ref_name
+        run: echo "${{ github.event.ref_name }}"
