@@ -16,4 +16,4 @@ jobs:
       - name: echo event ref_name
         run: echo "${{ github.event.ref_name }}"
       - name: echo env ref_name
-        run: echo "${{ GITHUB_REF_NAME }}"
+        run: echo "$GITHUB_REF_NAME"
