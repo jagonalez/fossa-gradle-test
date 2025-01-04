@@ -15,9 +15,8 @@ jobs:
         run: echo "${{ github.ref }}"
       - name: echo event ref_name
         run: |
-          TEST=(echo ${{ github.event.ref_name }} - ${{ github.event.ref_type }})
-          echo $TEST
-
+          TEST=(echo ${{ github.event.ref }} - ${{ github.event.ref_type }})
+          echo "$TEST"
       - name: echo env ref_name
         run: echo "$GITHUB_REF_NAME"
       - name: echo env ref
